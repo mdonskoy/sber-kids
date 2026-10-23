@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Кредит и инвестиции</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.rng{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;margin:12px 0;outline:none}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.rng::-moz-range-thumb{width:24px;height:24px;border:0;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.rng:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #21A038}
+.hint:hover{background:#34353A}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="width: 1760px; box-sizing: border-box; padding: 56px 64px; background: #0F0F10; font-family: 'SB Sans Text', Inter, system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600">Кредит и инвестиции</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 22px; color: #9A9DA3; max-width: 960px">Тот же макет, что у накоплений: результат сверху, ползунки, подсказка, кнопка. Кредит только сравниваем с накоплением — оформить его из чата нельзя. Инвестиции — диапазон, а не обещание: строка «не прогноз и не рекомендация» есть всегда. Анализ трат остаётся как на доске Step 0. Каждый путь заканчивается открытием продукта. Кредит: «Копить тем же платежом» → накопительный счёт с пополнением, равным платежу → «Открыть счёт» → подтверждение → «Готово»; кредит из чата не оформляем. Инвестиции: «Открыть брокерский счёт» → подтверждение с рисками → «Готово»; «Сравнить с накопительным счётом» — тот же взнос и срок на счёте, там тоже есть «Открыть счёт». Первые карточки работают — подвигай ползунки.</p>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <sc-for list="{{ loans }}" as="l" hint-placeholder-count="3">
+      <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ l.label }}</span>
+        <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; gap: 12px; align-items: flex-start">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><path d="M5 9h18M5 19h18M9 5l-4 4 4 4M19 15l4 4-4 4" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Копить или взять кредит</h3>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">{{ l.goal }} · {{ l.loanName }}</span>
+            </div>
+          </div>
+          <div aria-live="polite" aria-busy="{{ l.busy }}" style="border-radius: 14px; padding: 14px 16px; background: #2B2C30; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; flex-direction: column; gap: 12px; opacity: {{ l.opacity }}">
+              <div style="display: flex; flex-direction: column; gap: 2px">
+                <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Кредит — сразу</span>
+                <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ l.payment }} <span style="font-size: 17px; line-height: 22px; font-weight: 400; color: #9A9DA3">в месяц</span></span>
+                <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Переплата</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ l.overpay }}</b></div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">ПСК</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ l.psk }}</b></div>
+              </div>
+              <div style="height: 1px; background: #3A3B40"></div>
+              <div style="display: flex; flex-direction: column; gap: 2px">
+                <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Копить тем же платежом</span>
+                <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; color: #2DB84A">{{ l.saveMonths }}</span>
+                <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">На накопительном счёте под 12,5%, без переплаты</span>
+              </div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; color: #9A9DA3; visibility: {{ l.staleVisibility }}"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #45464C; border-top-color: #FFFFFF; animation: spin 0.8s linear infinite"></span>Пересчитываем…</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Сумма</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ l.amountText }}</b></label>
+            <input class="rng" type="range" min="100000" max="2000000" step="1000" value="{{ l.amount }}" onChange="{{ l.setAmount }}" aria-label="Сумма" aria-valuetext="{{ l.amountText }}" style="background: {{ l.amountTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums"><span>100 000 ₽</span><span>2 000 000 ₽</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок кредита</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ l.termText }}</b></label>
+            <input class="rng" type="range" min="{{ l.termMin }}" max="{{ l.termMax }}" step="1" value="{{ l.term }}" onChange="{{ l.setTerm }}" aria-label="Срок кредита" aria-valuetext="{{ l.termText }}" style="background: {{ l.termTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>{{ l.termMinText }}</span><span>{{ l.termMaxText }}</span></div>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; border-radius: 14px; padding: 12px 14px; min-height: 48px; box-sizing: border-box; background: #2B2C30">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><circle cx="10" cy="10" r="7.5" fill="none" stroke="{{ l.hintColor }}" stroke-width="1.6"></circle><path d="M10 6v5M10 13.8v.1" stroke="{{ l.hintColor }}" stroke-width="1.8" stroke-linecap="round"></path></svg>
+            <span style="font-size: 15px; line-height: 20px">{{ l.hint }}</span>
+          </div>
+          <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Копить тем же платежом</button>
+          <sc-if value="{{ l.handoff }}" hint-placeholder-val="{{ false }}">
+            <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Узнать про образовательный кредит</button>
+          </sc-if>
+          <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Расчёт примерный, без страховок и комиссий. Решение о кредите банк принимает после заявки. Не является публичной офертой.</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <sc-for list="{{ invests }}" as="v" hint-placeholder-count="2">
+      <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ v.label }}</span>
+        <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; gap: 12px; align-items: flex-start">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><path d="M4 22h20M7 18l5-6 4 3 6-8" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 7h4v4" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Симуляция инвестиций</h3>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Брокерский счёт · доход не гарантирован</span>
+            </div>
+          </div>
+          <div aria-live="polite" aria-busy="{{ v.busy }}" style="border-radius: 14px; padding: 14px 16px; background: #2B2C30; display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; flex-direction: column; gap: 6px; opacity: {{ v.opacity }}">
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Через {{ v.termText }} может быть</span>
+              <sc-for list="{{ v.benches }}" as="b" hint-placeholder-count="2">
+                <div style="display: flex; flex-direction: column; gap: 2px">
+                  <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; color: {{ b.color }}">{{ b.total }}</span>
+                  <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ b.name }}</span>
+                </div>
+              </sc-for>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 4px; border-top: 1px solid #3A3B40"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Твои взносы</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ v.paid }}</b></div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; color: #9A9DA3; visibility: {{ v.staleVisibility }}"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #45464C; border-top-color: #FFFFFF; animation: spin 0.8s linear infinite"></span>Пересчитываем…</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Вкладывать в месяц</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ v.monthlyText }}</b></label>
+            <input class="rng" type="range" min="1000" max="20000" step="1000" value="{{ v.monthly }}" onChange="{{ v.setMonthly }}" aria-label="Вкладывать в месяц" aria-valuetext="{{ v.monthlyText }}" style="background: {{ v.monthlyTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums"><span>1 000 ₽</span><span>20 000 ₽</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ v.termText }}</b></label>
+            <input class="rng" type="range" min="12" max="120" step="1" value="{{ v.term }}" onChange="{{ v.setTerm }}" aria-label="Срок" aria-valuetext="{{ v.termText }}" style="background: {{ v.termTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>12 мес.</span><span>120 мес.</span></div>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; border-radius: 14px; padding: 12px 14px; min-height: 48px; box-sizing: border-box; background: #2B2C30">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><path d="M10 3l8 14H2z" fill="none" stroke="#F2A73B" stroke-width="1.6" stroke-linejoin="round"></path><path d="M10 8v4M10 14.6v.1" stroke="#F2A73B" stroke-width="1.8" stroke-linecap="round"></path></svg>
+            <span style="font-size: 15px; line-height: 20px">Это не прогноз и не рекомендация. Можно получить меньше, чем вложишь</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px"><button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Открыть брокерский счёт</button><button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Сравнить с накопительным счётом</button></div>
+          <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Ориентиры условные: средняя доходность фонда облигаций и индекса акций за прошлые годы. Прошлая доходность не гарантирует будущую. Не является индивидуальной инвестиционной рекомендацией.</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":2000}}'>
+class Component extends DCLogic {
+  state = { amount: 900000, term: 60, monthly: 5000, invTerm: 60 };
+
+  renderVals() {
+    const s = this.state;
+    const rub = (n) => Math.round(n).toLocaleString('ru-RU') + ' ₽';
+    const months = (n) => n + ' мес.';
+    const track = (v, min, max) => 'linear-gradient(to right, #21A038 0 calc(12px + (100% - 24px) * ' + ((v - min) / (max - min)) + '), #34353A 0)';
+    const noop = () => {};
+    const fv = (m, n, a) => { const r = a / 12; return r === 0 ? m * n : m * ((1 + r) ** n - 1) / r; };
+    const toTarget = (t, m) => { for (let n = 1; n <= 600; n++) if (fv(m, n, 0.125) >= t) return n; return 600; };
+    const annuity = (p, a, n) => { const r = a / 12; const x = r === 0 ? p / n : p * r / (1 - (1 + r) ** -n); return { pay: Math.round(x), over: Math.round(x * n - p) }; };
+
+    const loan = (label, goal, loanName, rate, amount, term, termMin, termMax, stale, live, subsidised) => {
+      const a = annuity(amount, rate, term);
+      const heavy = a.pay > 45000 / 3;
+      return {
+        label, goal, loanName, amount, term, termMin, termMax, handoff: !!subsidised,
+        payment: rub(a.pay), overpay: rub(a.over), psk: String(rate * 100).replace('.', ',') + '%',
+        saveMonths: months(toTarget(amount, a.pay)),
+        amountText: rub(amount), termText: months(term), termMinText: months(termMin), termMaxText: months(termMax),
+        amountTrack: track(amount, 100000, 2000000), termTrack: track(term, termMin, termMax),
+        hint: heavy ? 'Платёж больше трети зарплаты — банк может отказать' : subsidised ? 'Ставка с господдержкой ниже, чем доход на накопительном счёте' : 'Чем короче срок, тем меньше переплата',
+        hintColor: heavy ? '#F2A73B' : '#21A038',
+        setAmount: live ? (e) => this.setState({ amount: Number(e.target.value) }) : noop,
+        setTerm: live ? (e) => this.setState({ term: Number(e.target.value) }) : noop,
+        busy: stale ? 'true' : 'false', opacity: stale ? '0.45' : '1', staleVisibility: stale ? 'visible' : 'hidden'
+      };
+    };
+    const invest = (label, monthly, term, stale, live) => {
+      // Two named benchmarks instead of bare rates: a bond fund and the Moscow Exchange stock index.
+      return {
+        label, monthly, term, paid: rub(monthly * term),
+        benches: [
+          { total: rub(fv(monthly, term, 0.10)), name: 'Как фонд гособлигаций — около 10% в год, спокойнее', color: '#FFFFFF' },
+          { total: rub(fv(monthly, term, 0.18)), name: 'Как индекс акций Мосбиржи — в среднем около 18% в год, бывают годы в минусе', color: '#2DB84A' }
+        ],
+        monthlyText: rub(monthly), termText: months(term),
+        monthlyTrack: track(monthly, 1000, 20000), termTrack: track(term, 12, 120),
+        setMonthly: live ? (e) => this.setState({ monthly: Number(e.target.value) }) : noop,
+        setTerm: live ? (e) => this.setState({ invTerm: Number(e.target.value) }) : noop,
+        busy: stale ? 'true' : 'false', opacity: stale ? '0.45' : '1', staleVisibility: stale ? 'visible' : 'hidden'
+      };
+    };
+    return {
+      loans: [
+        loan('Машина — работает', 'Машина', 'Автокредит, 22%', 0.22, s.amount, s.term, 12, 84, false, true),
+        loan('Первый взнос — та же сумма в ипотеку', 'Первый взнос на квартиру', 'Кредит, 18%', 0.18, 1500000, 240, 12, 300, false, false),
+        loan('Учёба — кредит с господдержкой: ещё и к специалисту банка', 'Учёба', 'Образовательный кредит с господдержкой, 3%', 0.03, 200000, 120, 12, 300, false, false, true),
+        loan('Ползунки сдвинуты, ответа ещё нет', 'Машина', 'Автокредит, 22%', 0.22, 600000, 36, 12, 84, true, false)
+      ],
+      invests: [
+        invest('Инвестиции — работает', s.monthly, s.invTerm, false, true),
+        invest('10 000 ₽ на 10 лет', 10000, 120, false, false)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Разговор</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.chip:hover{background:#34353A}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.rng::-moz-range-thumb{width:24px;height:24px;border:0;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+</style>
+</helmet>
+<div style="width: 1760px; box-sizing: border-box; padding: 56px 64px; background: #0F0F10; font-family: 'SB Sans Text', Inter, system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600">Разговор</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 22px; color: #9A9DA3; max-width: 960px">Баннер на главной, выбор цели, сумма и срок цели, эхо нажатий и быстрые ответы в чате, приглашение родственника, подтверждение и итог. Всё на «ты». Нажатие на кнопку в карточке появляется в чате как реплика Лизы — видно, что она выбрала. Под последним ответом — два-три быстрых ответа, их подбирает модель из списка банка. После цели — сумма и срок: у каждой цели три ориентира «на любой карман» и ползунки. От суммы и срока зависят варианты: маленькая или скорая цель — копилка и траты, большая без спешки — вклад и счёт, большая и срочная — сравнение с кредитом.</p>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Баннер на главной</span>
+      <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; gap: 12px; align-items: center">
+          <span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 14px; background: #21A038; display: flex; align-items: center; justify-content: center; font-size: 22px">🎉</span>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Первая зарплата</span>
+            <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums">+45 000 ₽</span>
+          </div>
+        </div>
+        <span style="font-size: 17px; line-height: 22px; color: #C9CBD0">Хочешь сохранить и приумножить?</span>
+        <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Составить план</button>
+      </div>
+    </div>
+
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Чат: вопрос, выбор цели, эхо нажатия</span>
+      <div style="background: #161618; border-radius: 20px; padding: 16px 12px; display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 17px; line-height: 22px; padding: 0 4px">Поздравляю с первой зарплатой! На что хочешь накопить?</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
+            <button type="button" class="chip" style="display: inline-flex; gap: 8px; align-items: center; min-height: 44px; padding: 10px 14px; border: 0; border-radius: 22px; background: {{ g.bg }}; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif; outline: {{ g.outline }}"><span aria-hidden="true">{{ g.emoji }}</span>{{ g.title }}</button>
+          </sc-for>
+        </div>
+        <div style="align-self: flex-end; max-width: 80%; background: #21A038; color: #FFFFFF; border-radius: 18px 18px 4px 18px; padding: 10px 14px; font-size: 17px; line-height: 22px">🏠 Первый взнос на квартиру</div>
+        <p style="margin: 0; font-size: 17px; line-height: 22px; padding: 0 4px">Хорошая цель. Сколько нужно и к какому сроку?</p>
+        <div style="background: #1E1F22; border-radius: 16px; padding: 14px 16px; font-size: 15px; line-height: 20px; color: #9A9DA3">[ карточка «Сумма и срок цели» — справа ]</div>
+        <div style="align-self: flex-end; max-width: 80%; background: #21A038; color: #FFFFFF; border-radius: 18px 18px 4px 18px; padding: 10px 14px; font-size: 17px; line-height: 22px">1 500 000 ₽ за 3 года</div>
+        <p style="margin: 0; font-size: 17px; line-height: 22px; padding: 0 4px">Большая цель и время есть. Вот где можно копить — выбери, с чего начать.</p>
+        <div style="background: #1E1F22; border-radius: 16px; padding: 14px 16px; font-size: 15px; line-height: 20px; color: #9A9DA3">[ карточка «Варианты под цель» — доска «Накопления» ]</div>
+        <div style="align-self: flex-end; max-width: 80%; background: #21A038; color: #FFFFFF; border-radius: 18px 18px 4px 18px; padding: 10px 14px; font-size: 17px; line-height: 22px">Хочу посмотреть: Вклад</div>
+      </div>
+    </div>
+
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Быстрые ответы под последним ответом</span>
+      <div style="background: #161618; border-radius: 20px; padding: 16px 12px; display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 17px; line-height: 22px; padding: 0 4px">Вот калькулятор. Подвигай ползунки — банк сразу пересчитает.</p>
+        <div style="background: #1E1F22; border-radius: 16px; padding: 14px 16px; font-size: 15px; line-height: 20px; color: #9A9DA3">[ калькулятор вклада ]</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{ replies }}" as="r" hint-placeholder-count="3">
+            <button type="button" class="chip" style="min-height: 40px; padding: 8px 14px; border: 1px solid #45464C; border-radius: 20px; background: transparent; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">{{ r }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Пригласить родственника</span>
+      <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; gap: 12px; align-items: flex-start">
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><circle cx="10" cy="10" r="4" fill="none" stroke="#21A038" stroke-width="1.8"></circle><circle cx="19" cy="11" r="3" fill="none" stroke="#21A038" stroke-width="1.8"></circle><path d="M3 23c0-4 3-7 7-7s7 3 7 7M17 17c4 0 8 2 8 6" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Копить вместе с мамой</h3>
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Цель «Первый взнос на квартиру»</span>
+          </div>
+        </div>
+        <span style="font-size: 17px; line-height: 22px">Мама сможет пополнять твою цель через Совместный счёт. Деньги останутся твоими.</span>
+        <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Пригласить маму</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <sc-for list="{{ amounts }}" as="a" hint-placeholder-count="2">
+      <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ a.label }}</span>
+        <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">{{ a.emoji }} {{ a.goal }}</h3>
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Сколько нужно и к какому сроку</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{ a.presets }}" as="p" hint-placeholder-count="3">
+              <span style="min-height: 40px; box-sizing: border-box; display: inline-flex; flex-direction: column; justify-content: center; padding: 6px 12px; border-radius: 14px; background: {{ p.bg }}; outline: {{ p.outline }}"><span style="font-size: 15px; line-height: 20px; font-weight: 600; font-variant-numeric: tabular-nums">{{ p.sum }}</span><span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ p.name }}</span></span>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Сумма</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ a.amountText }}</b></label>
+            <input class="rng" type="range" min="{{ a.min }}" max="{{ a.max }}" step="1000" value="{{ a.amount }}" aria-label="Сумма" style="-webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px; margin: 12px 0; background: {{ a.amountTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums"><span>{{ a.minText }}</span><span>{{ a.maxText }}</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ a.termText }}</b></label>
+            <input class="rng" type="range" min="1" max="60" step="1" value="{{ a.term }}" aria-label="Срок" style="-webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px; margin: 12px 0; background: {{ a.termTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>1 мес.</span><span>60 мес.</span></div>
+          </div>
+          <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Дальше</button>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Подтверждение — на «ты», с суммой и доходом</span>
+      <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Открыть вклад «Выгодный старт»</h3>
+          <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Проверь условия — после открытия их не изменить</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <sc-for list="{{ terms }}" as="t" hint-placeholder-count="4">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">{{ t.label }}</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums">{{ t.value }}</b></div>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Подтвердить</button>
+          <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Отмена</button>
+        </div>
+        <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Не является публичной офертой. Условия, ставки и тарифы — в документах продукта на сайте банка.</p>
+      </div>
+    </div>
+
+    <sc-for list="{{ dones }}" as="d" hint-placeholder-count="2">
+      <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ d.label }}</span>
+        <div style="background: #1E1F22; border-radius: 20px; padding: 24px 16px 16px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start">
+          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{ d.badge }}; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600">{{ d.mark }}</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">{{ d.title }}</h3>
+            <span style="font-size: 17px; line-height: 22px; color: #C9CBD0">{{ d.text }}</span>
+          </div>
+          <button type="button" style="align-self: stretch; min-height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">{{ d.back }}</button>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const goals = [['🛟', 'Подушка безопасности'], ['🏖', 'Отпуск'], ['🏠', 'Первый взнос на квартиру'], ['🚗', 'Машина'], ['🎓', 'Учёба']];
+    const rub = (n) => n.toLocaleString('ru-RU') + ' ₽';
+    const track = (v, min, max) => 'linear-gradient(to right, #21A038 0 calc(12px + (100% - 24px) * ' + ((v - min) / (max - min)) + '), #34353A 0)';
+    const amount = (label, emoji, goal, presets, pick, min, max, amt, term) => ({
+      label, emoji, goal, amount: amt, term, min, max,
+      presets: presets.map(([name, sum], i) => ({ name, sum: rub(sum), bg: i === pick ? '#2B2C30' : '#232427', outline: i === pick ? '2px solid #21A038' : 'none' })),
+      amountText: rub(amt), minText: rub(min), maxText: rub(max), termText: term + ' мес.',
+      amountTrack: track(amt, min, max), termTrack: track(term, 1, 60)
+    });
+    return {
+      amounts: [
+        amount('Сумма и срок цели — квартира: банк подставляет ориентиры по городу', '🏠', 'Первый взнос на квартиру', [['Студия', 900000], ['Однушка', 1500000], ['Двушка', 2400000]], 1, 300000, 5000000, 1500000, 36),
+        amount('Отпуск — на любой карман', '🏖', 'Отпуск', [['Россия', 40000], ['Турция', 80000], ['Азия', 150000]], 0, 10000, 500000, 40000, 6),
+        amount('Машина', '🚗', 'Машина', [['С пробегом', 600000], ['Новая', 1500000], ['Кроссовер', 2500000]], 0, 100000, 5000000, 600000, 24)
+      ],
+      goals: goals.map(([emoji, title]) => ({ emoji, title, bg: title.startsWith('Первый') ? '#2B2C30' : '#232427', outline: title.startsWith('Первый') ? '2px solid #21A038' : 'none' })),
+      replies: ['Сравнить с кредитом', 'А если инвестировать?', 'Копить вместе с мамой'],
+      terms: [
+        { label: 'Сумма', value: '30 000 ₽' },
+        { label: 'Срок', value: '12 мес.' },
+        { label: 'Доход', value: '+3 450 ₽ к 23 октября 2027' },
+        { label: 'Снять раньше', value: 'без процентов' }
+      ],
+      dones: [
+        { label: 'Итог', mark: '✓', badge: '#21A038', title: 'Готово', text: 'Вклад «Выгодный старт» открыт. Цель будет пополняться отсюда.', back: 'К плану' },
+        { label: 'Действие устарело — на «ты»', mark: '!', badge: '#45464C', title: 'Не получилось', text: 'Это уже сделано или устарело. Вернись на главный экран.', back: 'На главный' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

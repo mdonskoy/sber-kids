@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Chrome: главная и чат</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#21A038}a:hover{color:#2DB84A}
+input::placeholder{color:#9A9DA3}
+</style>
+</helmet>
+<div style="width: 1840px; height: 1120px; box-sizing: border-box; padding: 0 0 48px; background: #08080A; font-family: 'SB Sans Text', Inter, system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; gap: 32px">
+  <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 64px; background: #151618; box-shadow: 0 1px 0 #34353A">
+    <div role="img" aria-label="логотип" style="width: 32px; height: 32px; border-radius: 14px; background: #21A038"></div>
+    <h1 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Прототип: «Первые деньги»</h1>
+    <button type="button" style="margin-left: auto; height: 44px; padding: 0 16px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">Сбросить демо</button>
+  </header>
+
+  <div style="display: flex; gap: 48px; padding: 0 64px; align-items: flex-start">
+
+    <!-- 1. Home -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Лиза, 19 лет · главная: наш баннер вместо рекламы</span>
+      <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 44px; border: 10px solid #000000; box-shadow: 0 0 0 1px #34353A; overflow: hidden; display: flex; flex-direction: column; background: radial-gradient(120% 45% at 15% 0%, #0D4A3B 0%, #0F2B26 35%, #0F0F10 70%)">
+        <div style="flex: 1; padding: 12px 8px 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
+          <div style="display: flex; gap: 8px; align-items: center">
+            <button type="button" aria-label="Профиль" style="width: 44px; height: 44px; flex: none; border: 0; border-radius: 14px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="8" r="3.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"></circle><path d="M4.5 18c1.2-3 3.7-4.5 6.5-4.5s5.3 1.5 6.5 4.5" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+            <label style="flex: 1; display: flex; min-width: 0"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Поиск</span><input placeholder="Поиск" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 14px; border: 0; border-radius: 14px; background: rgba(255,255,255,0.08); color: #FFFFFF; font: 400 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif"></label>
+            <button type="button" aria-label="Чат" style="width: 44px; height: 44px; flex: none; border: 0; border-radius: 14px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M4 5.5h14v9H9l-4 3v-3H4z" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"></path></svg></button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 8px">
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">В кошельке</span>
+            <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">45 000<span style="color: #9A9DA3">,00</span> ₽</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+            <div style="height: 116px; box-sizing: border-box; border-radius: 20px; padding: 14px; background: rgba(255,255,255,0.08); display: flex; flex-direction: column; justify-content: space-between">
+              <div aria-hidden="true" style="width: 36px; height: 24px; border-radius: 6px; background: #D9DCE1"></div>
+              <div style="display: flex; flex-direction: column">
+                <span style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums">45 000 ₽</span>
+                <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Дебетовая •• 4665</span>
+              </div>
+            </div>
+            <div style="height: 116px; box-sizing: border-box; border-radius: 20px; padding: 14px; background: rgba(255,255,255,0.08); display: flex; flex-direction: column; justify-content: space-between">
+              <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="6" width="20" height="17" rx="3" fill="none" stroke="#21A038" stroke-width="1.8"></rect><circle cx="14" cy="14.5" r="3.5" fill="none" stroke="#21A038" stroke-width="1.8"></circle></svg>
+              <div style="display: flex; flex-direction: column">
+                <span style="font-size: 17px; line-height: 22px; font-weight: 600">Накопления</span>
+                <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Пока пусто</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" style="text-decoration: none; color: #FFFFFF; border-radius: 20px; padding: 16px; background: #1E1F22; display: flex; gap: 12px; align-items: center; box-shadow: 0 0 0 1px rgba(33,160,56,0.35)">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0">
+              <span style="font-size: 17px; line-height: 22px; font-weight: 600">Первая зарплата — 45 000 ₽</span>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Соберём план под твою цель</span>
+              <span style="font-size: 15px; line-height: 20px; font-weight: 600; color: #21A038">Составить план</span>
+            </div>
+            <svg aria-hidden="true" width="76" height="76" viewBox="0 0 76 76" style="flex: none"><ellipse cx="38" cy="58" rx="22" ry="6" fill="#0F3A22"></ellipse><rect x="16" y="44" width="44" height="12" rx="6" fill="#1A7A31"></rect><rect x="16" y="34" width="44" height="12" rx="6" fill="#21A038"></rect><rect x="16" y="24" width="44" height="12" rx="6" fill="#2DB84A"></rect><circle cx="56" cy="20" r="11" fill="#FFFFFF"></circle><path d="M51.5 20.3l3 3 6-6.3" fill="none" stroke="#21A038" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <section style="border-radius: 20px; padding: 16px; background: #1E1F22; display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; align-items: center">
+              <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">История</h2>
+              <span style="margin-left: auto; height: 32px; padding: 0 12px; border-radius: 14px; background: #2B2C30; display: inline-flex; align-items: center; font-size: 15px; line-height: 20px">Ещё</span>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center">
+              <div aria-hidden="true" style="width: 40px; height: 40px; flex: none; border-radius: 20px; background: #2B2C30; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M14 6l-8 8M6 8.5V14h5.5" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+              <div style="flex: 1; display: flex; flex-direction: column; min-width: 0"><span style="font-size: 17px; line-height: 22px">Зарплата</span><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Сегодня · Поступления</span></div>
+              <span style="font-size: 17px; line-height: 22px; font-weight: 600; color: #21A038; font-variant-numeric: tabular-nums; white-space: nowrap">+45 000 ₽</span>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center">
+              <div aria-hidden="true" style="width: 40px; height: 40px; flex: none; border-radius: 20px; background: #2B2C30; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3.5" y="5" width="13" height="10" rx="2" fill="none" stroke="#FFFFFF" stroke-width="1.6"></rect><path d="M3.5 8.5h13" stroke="#FFFFFF" stroke-width="1.6"></path></svg></div>
+              <div style="flex: 1; display: flex; flex-direction: column; min-width: 0"><span style="font-size: 17px; line-height: 22px">Обслуживание карты</span><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">27 сентября · Комиссии</span></div>
+              <span style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">150 ₽</span>
+            </div>
+          </section>
+        </div>
+        <nav aria-label="Разделы" style="flex: none; height: 64px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: #151618; box-shadow: 0 -1px 0 #26272B">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+            <a href="#" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: {{ t.color }}; font-size: 12px; line-height: 16px">
+              <span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 7px; border: 2px solid {{ t.color }}; box-sizing: border-box"></span>{{ t.label }}
+            </a>
+          </sc-for>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 2. Chat -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Чат после «Составить план»</span>
+      <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 44px; border: 10px solid #000000; box-shadow: 0 0 0 1px #34353A; overflow: hidden; display: flex; flex-direction: column; background: #0F0F10">
+        <div style="height: 56px; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 8px">
+          <button type="button" aria-label="Назад" style="width: 44px; height: 44px; border: 0; border-radius: 14px; background: transparent; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M19 12H5m6-6l-6 6 6 6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Первые деньги</h2>
+        </div>
+        <div style="flex: 1; padding: 8px 8px 12px; display: flex; flex-direction: column; gap: 8px; overflow: hidden">
+          <span style="align-self: center; font-size: 13px; line-height: 18px; color: #9A9DA3; padding: 4px 0 8px">Сегодня</span>
+          <div style="align-self: flex-start; max-width: 85%; border-radius: 20px; padding: 12px 16px; background: #1E1F22; font-size: 17px; line-height: 22px">Поздравляю с первой зарплатой! На что хочешь копить?</div>
+          <div style="align-self: flex-end; max-width: 80%; border-radius: 20px; padding: 12px 16px 8px; background: #2B2C30; display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 17px; line-height: 22px">Первый взнос на квартиру</span>
+            <span style="align-self: flex-end; font-size: 13px; line-height: 18px; color: #9A9DA3">19:20</span>
+          </div>
+          <div style="margin-top: 16px; border-radius: 20px; padding: 20px 16px 16px; background: #1E1F22; display: flex; flex-direction: column; gap: 20px">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Копи на первый взнос</h3>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Цель — 1 500 000 ₽. Выбери, где копить</span>
+            </div>
+            <div style="display: flex; flex-direction: column">
+              <div style="display: flex; gap: 12px; align-items: flex-start; padding-bottom: 16px">
+                <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="1.8"></rect><circle cx="14" cy="14" r="3.5" fill="none" stroke="#21A038" stroke-width="1.8"></circle></svg>
+                <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 17px; line-height: 22px">Вклад — 15% годовых</span><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Ставка выше, но снять раньше срока нельзя</span></div>
+              </div>
+              <div style="height: 1px; margin-left: 40px; background: #34353A"></div>
+              <div style="display: flex; gap: 12px; align-items: flex-start; padding-top: 16px">
+                <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="1.8"></rect><path d="M8 18l4-4 3 2.5 5-6" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 17px; line-height: 22px">Накопительный счёт — 14% годовых</span><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Снимай деньги в любой момент</span></div>
+              </div>
+            </div>
+            <button type="button" style="height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Посчитать</button>
+          </div>
+          <div style="display: flex; gap: 8px; overflow: hidden">
+            <button type="button" style="flex: none; height: 40px; padding: 0 16px; border: 1px solid #45464C; border-radius: 14px; background: transparent; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">А что с тратами?</button>
+            <button type="button" style="flex: none; height: 40px; padding: 0 16px; border: 1px solid #45464C; border-radius: 14px; background: transparent; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">Позвать специалиста</button>
+          </div>
+        </div>
+        <form style="flex: none; display: flex; gap: 8px; padding: 8px 8px 16px">
+          <label style="flex: 1; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Сообщение</span><input placeholder="Сообщение" style="flex: 1; min-width: 0; height: 52px; box-sizing: border-box; padding: 0 16px; border: 0; border-radius: 20px; background: #1E1F22; color: #FFFFFF; font: 400 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif"></label>
+          <button type="button" aria-label="Отправить" style="width: 52px; height: 52px; flex: none; border: 0; border-radius: 26px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M11 18V4m-6 6l6-6 6 6" fill="none" stroke="#111214" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 3. Waiting -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Ответ готовится</span>
+      <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 44px; border: 10px solid #000000; box-shadow: 0 0 0 1px #34353A; overflow: hidden; display: flex; flex-direction: column; background: #0F0F10">
+        <div style="height: 56px; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 8px">
+          <button type="button" aria-label="Назад" style="width: 44px; height: 44px; border: 0; border-radius: 14px; background: transparent; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M19 12H5m6-6l-6 6 6 6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Первые деньги</h2>
+        </div>
+        <div style="flex: 1; padding: 8px 8px 12px; display: flex; flex-direction: column; gap: 8px; overflow: hidden">
+          <span style="align-self: center; font-size: 13px; line-height: 18px; color: #9A9DA3; padding: 4px 0 8px">Сегодня</span>
+          <div style="align-self: flex-start; max-width: 85%; border-radius: 20px; padding: 12px 16px; background: #1E1F22; font-size: 17px; line-height: 22px">Поздравляю с первой зарплатой! На что хочешь копить?</div>
+          <div style="align-self: flex-end; max-width: 80%; border-radius: 20px; padding: 12px 16px 8px; background: #2B2C30; display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 17px; line-height: 22px">Первый взнос на квартиру</span>
+            <span style="align-self: flex-end; font-size: 13px; line-height: 18px; color: #9A9DA3">19:20</span>
+          </div>
+          <div role="status" aria-label="Ответ готовится" style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px">
+            <div aria-hidden="true" style="align-self: flex-start; border-radius: 20px; padding: 16px 18px; background: #1E1F22; display: flex; gap: 6px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #FFFFFF"></span><span style="width: 8px; height: 8px; border-radius: 4px; background: #9A9DA3"></span><span style="width: 8px; height: 8px; border-radius: 4px; background: #45464C"></span></div>
+            <div aria-hidden="true" style="border-radius: 20px; padding: 20px 16px 16px; background: #1E1F22; display: flex; flex-direction: column; gap: 14px">
+              <div style="height: 24px; width: 60%; border-radius: 8px; background: #2B2C30"></div>
+              <div style="height: 16px; width: 85%; border-radius: 8px; background: #2B2C30"></div>
+              <div style="height: 16px; width: 70%; border-radius: 8px; background: #2B2C30"></div>
+              <div style="height: 52px; border-radius: 14px; background: #2B2C30"></div>
+            </div>
+          </div>
+        </div>
+        <form style="flex: none; display: flex; gap: 8px; padding: 8px 8px 16px">
+          <label style="flex: 1; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Сообщение</span><input disabled placeholder="Сообщение" style="flex: 1; min-width: 0; height: 52px; box-sizing: border-box; padding: 0 16px; border: 0; border-radius: 20px; background: #1E1F22; color: #FFFFFF; font: 400 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif"></label>
+          <button type="button" disabled aria-label="Отправить" style="width: 52px; height: 52px; flex: none; border: 0; border-radius: 26px; background: #2B2C30; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M11 18V4m-6 6l6-6 6 6" fill="none" stroke="#9A9DA3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 4. Error -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Ответ не пришёл</span>
+      <div style="width: 390px; height: 844px; box-sizing: border-box; border-radius: 44px; border: 10px solid #000000; box-shadow: 0 0 0 1px #34353A; overflow: hidden; display: flex; flex-direction: column; background: #0F0F10">
+        <div style="height: 56px; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 8px">
+          <button type="button" aria-label="Назад" style="width: 44px; height: 44px; border: 0; border-radius: 14px; background: transparent; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M19 12H5m6-6l-6 6 6 6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Первые деньги</h2>
+        </div>
+        <div style="flex: 1; padding: 8px 8px 12px; display: flex; flex-direction: column; gap: 8px; overflow: hidden">
+          <span style="align-self: center; font-size: 13px; line-height: 18px; color: #9A9DA3; padding: 4px 0 8px">Сегодня</span>
+          <div style="align-self: flex-end; max-width: 80%; border-radius: 20px; padding: 12px 16px 8px; background: #2B2C30; display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 17px; line-height: 22px">А что с тратами?</span>
+            <span style="align-self: flex-end; font-size: 13px; line-height: 18px; color: #9A9DA3">19:24</span>
+          </div>
+          <div role="alert" style="margin-top: 16px; border-radius: 20px; padding: 20px 16px 16px; background: #1E1F22; display: flex; flex-direction: column; gap: 20px">
+            <div style="display: flex; gap: 12px; align-items: flex-start">
+              <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><circle cx="14" cy="14" r="10" fill="none" stroke="#FF6B5E" stroke-width="1.8"></circle><path d="M14 8.5v6.5M14 18.6v.4" stroke="#FF6B5E" stroke-width="2" stroke-linecap="round"></path></svg>
+              <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 17px; line-height: 22px; font-weight: 600">Не получилось ответить</span><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Связь прервалась. Попробуй ещё раз — твои данные не изменились.</span></div>
+            </div>
+            <button type="button" style="height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Повторить</button>
+          </div>
+        </div>
+        <form style="flex: none; display: flex; gap: 8px; padding: 8px 8px 16px">
+          <label style="flex: 1; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Сообщение</span><input placeholder="Сообщение" style="flex: 1; min-width: 0; height: 52px; box-sizing: border-box; padding: 0 16px; border: 0; border-radius: 20px; background: #1E1F22; color: #FFFFFF; font: 400 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif"></label>
+          <button type="button" aria-label="Отправить" style="width: 52px; height: 52px; flex: none; border: 0; border-radius: 26px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M11 18V4m-6 6l6-6 6 6" fill="none" stroke="#111214" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 0 64px; height: 48px; padding: 0 16px; border-radius: 14px; background: #151618; display: flex; align-items: center; gap: 8px; font-size: 15px; line-height: 20px; font-weight: 600">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    Отладка (для команды)
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1840,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tab = (label, active) => ({ label, color: active ? '#21A038' : '#9A9DA3' });
+    return { tabs: [tab('Главный', true), tab('Накопления'), tab('Для жизни'), tab('Платежи'), tab('Кредиты')] };
+  }
+}
+</script>
+</body>
+</html>

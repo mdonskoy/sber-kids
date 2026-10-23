@@ -1,0 +1,7 @@
+{
+  "id": "first-money-home",
+  "roles": ["young-adult"],
+  "title": "Главная СБОЛ",
+  "clock": "10:00",
+  "instruction": "Main screen of Sber Online for a 19-year-old whose first salary just arrived. The home slot is one card: compose only FirstMoneyBanner bound to /banner, with no greeting text, no section and no GoalPicker."
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@proto/catalog",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": { "@a2ui/web_core": "0.14.0", "zod": "3.25.76" }
+}

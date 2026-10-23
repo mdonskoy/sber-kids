@@ -1,0 +1,7 @@
+{
+  "name": "@proto/evals",
+  "private": true,
+  "type": "module",
+  "scripts": { "eval": "tsx src/run.ts" },
+  "dependencies": { "@proto/catalog": "*", "@proto/mocks": "*", "@proto/server": "*", "tsx": "4.23.15", "zod": "3.25.76" }
+}

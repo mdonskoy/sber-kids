@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@theme {
+  --font-sans: "SB Sans Text", Inter, system-ui, sans-serif;
+  --font-display: "SB Sans Display", "SB Sans Text", Inter, system-ui, sans-serif;
+  --text-amount: 1.75rem;      --text-amount--line-height: 2.125rem;  --text-amount--font-weight: 600;
+  --text-title: 1.375rem;      --text-title--line-height: 1.75rem;    --text-title--font-weight: 600;
+  --text-body: 1.0625rem;      --text-body--line-height: 1.375rem;
+  --text-secondary: 0.9375rem; --text-secondary--line-height: 1.25rem;
+  --text-caption: 0.8125rem;   --text-caption--line-height: 1.125rem;
+  --radius-card: 1.25rem;
+  --radius-control: 0.875rem;
+  --color-page: #08080A;
+  --color-success-text: var(--success-text);
+}
+
+/* Dark-only Sber theme on HeroUI's variables. HeroUI declares its dark block as
+   `.dark, [data-theme="dark"]` inside @layer base; this block is unlayered and comes after
+   the imports, so it wins regardless of specificity. */
+:root, .dark, [data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0F0F10;
+  --foreground: #FFFFFF;
+  --surface: #1E1F22;
+  --surface-foreground: #FFFFFF;
+  --default: #2B2C30;
+  --default-foreground: #FFFFFF;
+  --border: #34353A;
+  --separator: #34353A;
+  --muted: #9A9DA3;
+  --accent: #FFFFFF;
+  --accent-foreground: #111214;
+  --success: #21A038;
+  --success-foreground: #FFFFFF;
+  --success-text: #2DB84A;
+  --warning: #F2A33A;
+  --danger: #FF6B5E;
+  --focus: #21A038;
+  --radius: 0.875rem;
+}
+
+body { @apply bg-page font-sans text-body text-foreground antialiased; }

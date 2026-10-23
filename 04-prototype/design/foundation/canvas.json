@@ -1,0 +1,18 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-23T19:40:00Z" },
+  "title": "Первые деньги — foundation",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1280, "h": 1180, "title": "Tokens" },
+    "Chrome.dc.html": { "x": 0, "y": 1300, "w": 1840, "h": 1120, "title": "Chrome: главная и чат" },
+    "Spend.dc.html": { "x": 0, "y": 3520, "w": 1624, "h": 1000, "title": "SpendAnalytics" },
+    "Savings.dc.html": { "x": 0, "y": 4640, "w": 1760, "h": 1640, "title": "Накопления: варианты, вклад, счёт, копилка", "is_interactive": true },
+    "LoanInvest.dc.html": { "x": 0, "y": 6400, "w": 1760, "h": 2100, "title": "Кредит и инвестиции", "is_interactive": true },
+    "Conversation.dc.html": { "x": 0, "y": 8620, "w": 1760, "h": 2300, "title": "Разговор" }
+  },
+  "order": ["Main.dc.html", "Chrome.dc.html", "Spend.dc.html", "Savings.dc.html", "LoanInvest.dc.html", "Conversation.dc.html"],
+  "notes": {},
+  "designSystems": []
+}

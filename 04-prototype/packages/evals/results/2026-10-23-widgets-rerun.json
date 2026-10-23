@@ -1,0 +1,812 @@
+[
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:24.030Z",
+      "requestId": "3c79d5d5-b3f3-4734-94c0-58016574c539",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5237,
+      "modelLatencyMs": 5234,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 239,
+        "cacheReadTokens": 5058,
+        "cacheWriteTokens": 7327
+      },
+      "costUsd": 0.042434599999999996
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:29.231Z",
+      "requestId": "46df27f3-076b-4735-bf83-3bf1dbaf3eca",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5199,
+      "modelLatencyMs": 5199,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 234,
+        "cacheReadTokens": 7713,
+        "cacheWriteTokens": 4609
+      },
+      "costUsd": 0.0292756
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:33.891Z",
+      "requestId": "2756b237-b6dd-4c86-9c4e-5d0ecb3e95af",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4659,
+      "modelLatencyMs": 4658,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 236,
+        "cacheReadTokens": 5058,
+        "cacheWriteTokens": 7308
+      },
+      "costUsd": 0.021645599999999997
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:38.380Z",
+      "requestId": "a7544bc1-2975-4fd5-a8ad-8a7474dab09a",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4487,
+      "modelLatencyMs": 4486,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 225,
+        "cacheReadTokens": 7713,
+        "cacheWriteTokens": 4590
+      },
+      "costUsd": 0.0152716
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:42.121Z",
+      "requestId": "9106944f-8fdd-46ff-9d93-2f8c07e38224",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 3740,
+      "modelLatencyMs": 3740,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 382,
+        "cacheReadTokens": 5058,
+        "cacheWriteTokens": 7329
+      },
+      "costUsd": 0.0011579049999999999
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 0,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:48.645Z",
+      "requestId": "57a63952-f3db-41f5-ab94-2c0d14172480",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 6522,
+      "modelLatencyMs": 6522,
+      "usage": {
+        "inputTokens": 4,
+        "outputTokens": 670,
+        "cacheReadTokens": 20037,
+        "cacheWriteTokens": 5700
+      },
+      "costUsd": 0.00124827
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:53.739Z",
+      "requestId": "7c5e942b-aec6-4f69-a868-e7a4c501af8e",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5094,
+      "modelLatencyMs": 5093,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 218,
+        "cacheReadTokens": 12385,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.006845
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:57:59.054Z",
+      "requestId": "19f02345-9729-4182-82eb-47bc6f226098",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5314,
+      "modelLatencyMs": 5313,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 230,
+        "cacheReadTokens": 12322,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.0070723999999999995
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:04.008Z",
+      "requestId": "75af3da8-b473-4fe6-bc3e-5f150591dc91",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4953,
+      "modelLatencyMs": 4953,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 227,
+        "cacheReadTokens": 12366,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.004747200000000001
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:07.772Z",
+      "requestId": "d80c115f-e611-4616-a036-96bb274c1103",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 3763,
+      "modelLatencyMs": 3762,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 228,
+        "cacheReadTokens": 12303,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.004744600000000001
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:12.833Z",
+      "requestId": "a8391197-b3e1-459b-8431-fd4581eb8a7a",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5061,
+      "modelLatencyMs": 5060,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 423,
+        "cacheReadTokens": 12387,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.00033557
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 1,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:16.485Z",
+      "requestId": "ddd3eb9a-f7b7-4672-9a5b-503b11ada17d",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 3651,
+      "modelLatencyMs": 3650,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 374,
+        "cacheReadTokens": 12324,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.00031044
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:22.045Z",
+      "requestId": "6c4dba7b-61f7-4d76-b363-4d9f7884a927",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5559,
+      "modelLatencyMs": 5559,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 229,
+        "cacheReadTokens": 12385,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.007065
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-opus-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:26.443Z",
+      "requestId": "c44aad6e-ba4a-4119-814f-c437b43fdce7",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-opus-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4396,
+      "modelLatencyMs": 4396,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 234,
+        "cacheReadTokens": 12322,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.0071524
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:31.966Z",
+      "requestId": "7840a52b-088a-4af6-a4b6-b274772cd956",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 5522,
+      "modelLatencyMs": 5522,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 232,
+        "cacheReadTokens": 12366,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.004797200000000001
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-sonnet-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:40.860Z",
+      "requestId": "7fc4e082-411e-4a14-90af-354eab3f87e3",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-sonnet-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 8891,
+      "modelLatencyMs": 8891,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 232,
+        "cacheReadTokens": 12303,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.0047846
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "SavingsAccountCalculator",
+      "setup": {
+        "goal": "apartment",
+        "target": {
+          "amount": 1500000,
+          "months": 36
+        },
+        "way": "savings-account"
+      },
+      "userText": "Хочу посмотреть: Накопительный счёт"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:44.920Z",
+      "requestId": "869c5471-61e6-4af9-8a9e-b7bf56cf8859",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4058,
+      "modelLatencyMs": 4057,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 400,
+        "cacheReadTokens": 12387,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.00032407
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  },
+  {
+    "case": {
+      "model": "claude-haiku-5-5",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "force": "none",
+      "rep": 2,
+      "expect": "PiggyBankCalculator",
+      "setup": {
+        "goal": "vacation",
+        "target": {
+          "amount": 80000,
+          "months": 6
+        },
+        "way": "piggy"
+      },
+      "userText": "Хочу посмотреть: Копилка"
+    },
+    "event": {
+      "ts": "2026-10-23T18:58:49.700Z",
+      "requestId": "eef6c677-e380-4397-9a0c-11e5461afb9f",
+      "role": "young-adult",
+      "scenarioId": "first-money-chat",
+      "model": "claude-haiku-5-5",
+      "outcome": "model",
+      "modelCalled": true,
+      "firstTryValid": true,
+      "retried": false,
+      "policyViolations": 0,
+      "issueCodes": [],
+      "latencyMs": 4779,
+      "modelLatencyMs": 4779,
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 385,
+        "cacheReadTokens": 12324,
+        "cacheWriteTokens": 0
+      },
+      "costUsd": 0.00031594
+    },
+    "leaked": false,
+    "independent": [],
+    "refused": false,
+    "shown": true
+  }
+]

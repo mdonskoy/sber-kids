@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Накопления</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#21A038}a:hover{color:#2DB84A}
+.rng{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;margin:12px 0;outline:none}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.rng::-moz-range-thumb{width:24px;height:24px;border:0;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.rng:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #21A038}
+.opt:hover{background:#2B2C30}
+.hint:hover{background:#34353A}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="width: 1760px; box-sizing: border-box; padding: 56px 64px; background: #0F0F10; font-family: 'SB Sans Text', Inter, system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600">Накопления</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 22px; color: #9A9DA3; max-width: 960px">Сначала цель, потом варианты под неё, потом калькулятор выбранного варианта прямо в чате. У вклада, счёта и копилки один макет: результат сверху, ползунки, подсказка, как получить больше, кнопка с суммой. Первые карточки вклада, счёт и копилка на этой доске работают — подвигай ползунки.</p>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 24px">
+      <sc-for list="{{ optionSets }}" as="o" hint-placeholder-count="2">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ o.label }}</span>
+          <div style="background: #1E1F22; border-radius: 20px; padding: 20px 8px 8px; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; flex-direction: column; gap: 4px; padding: 0 8px">
+              <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">{{ o.title }}</h3>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">{{ o.subtitle }}</span>
+            </div>
+            <div style="display: flex; flex-direction: column">
+              <sc-for list="{{ o.rows }}" as="r" hint-placeholder-count="2">
+                <button type="button" class="opt" style="display: flex; gap: 12px; align-items: center; text-align: left; border: 0; background: transparent; color: #FFFFFF; border-radius: 14px; padding: 12px 8px; min-height: 64px; font: inherit; cursor: pointer">
+                  <span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #2B2C30; display: flex; align-items: center; justify-content: center">
+                    <sc-if value="{{ r.isDeposit }}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 28 28"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="2"></rect><circle cx="14" cy="14" r="3.5" fill="none" stroke="#21A038" stroke-width="2"></circle></svg></sc-if>
+                    <sc-if value="{{ r.isAccount }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 28 28"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="2"></rect><path d="M8 18l4-4 3 3 5-6" fill="none" stroke="#21A038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+                    <sc-if value="{{ r.isPiggy }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 28 28"><circle cx="14" cy="15" r="8" fill="none" stroke="#21A038" stroke-width="2"></circle><path d="M11 7h6" stroke="#21A038" stroke-width="2" stroke-linecap="round"></path><path d="M14 11v8M11.5 13.5h4a1.5 1.5 0 010 3h-3a1.5 1.5 0 000 3h4" fill="none" stroke="#21A038" stroke-width="1.6" stroke-linecap="round"></path></svg></sc-if>
+                    <sc-if value="{{ r.isSpend }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" fill="none" stroke="#21A038" stroke-width="2"></circle><path d="M14 5v9l6 5" fill="none" stroke="#21A038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+                  </span>
+                  <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                    <span style="font-size: 17px; line-height: 22px; font-weight: 600">{{ r.name }}</span>
+                    <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">{{ r.line }}</span>
+                  </span>
+                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><path d="M8 5l5 5-5 5" fill="none" stroke="#9A9DA3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-for list="{{ deposits }}" as="d" hint-placeholder-count="3">
+      <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ d.label }}</span>
+        <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; gap: 12px; align-items: flex-start">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="1.8"></rect><circle cx="14" cy="14" r="3.5" fill="none" stroke="#21A038" stroke-width="1.8"></circle></svg>
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Вклад «{{ d.tariff }}»</h3>
+              <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">{{ d.conditions }}</span>
+            </div>
+          </div>
+          <div aria-live="polite" aria-busy="{{ d.busy }}" style="border-radius: 14px; padding: 14px 16px; background: #2B2C30; display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; gap: 16px; opacity: {{ d.opacity }}">
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 96px">
+                <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ d.rate }}</span>
+                <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Ставка</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px">
+                <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; color: #2DB84A; font-variant-numeric: tabular-nums; white-space: nowrap">{{ d.income }}</span>
+                <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Доход к {{ d.payout }}</span>
+              </div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; color: #9A9DA3; visibility: {{ d.staleVisibility }}"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #45464C; border-top-color: #FFFFFF; animation: spin 0.8s linear infinite"></span>Пересчитываем…</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Сумма</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ d.amountText }}</b></label>
+            <input class="rng" type="range" min="10000" max="500000" step="1000" value="{{ d.amount }}" onChange="{{ d.setAmount }}" aria-label="Сумма" aria-valuetext="{{ d.amountText }}" style="background: {{ d.amountTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums"><span>10 000 ₽</span><span>500 000 ₽</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ d.termText }}</b></label>
+            <input class="rng" type="range" min="1" max="36" step="1" value="{{ d.term }}" onChange="{{ d.setTerm }}" aria-label="Срок" aria-valuetext="{{ d.termText }}" style="background: {{ d.termTrack }}">
+            <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>1 мес.</span><span>36 мес.</span></div>
+          </div>
+          <button type="button" class="hint" onClick="{{ d.applyHint }}" style="display: flex; gap: 10px; align-items: center; text-align: left; border: 0; border-radius: 14px; padding: 12px 14px; min-height: 48px; background: #2B2C30; color: #FFFFFF; font: inherit; cursor: pointer">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><path d="M4 15L15 4M6.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="none" stroke="#21A038" stroke-width="1.6" stroke-linecap="round"></path></svg>
+            <span style="flex: 1; font-size: 15px; line-height: 20px">{{ d.hint }}</span>
+            <sc-if value="{{ d.hintAction }}" hint-placeholder-val="{{ true }}"><span style="flex: none; font-size: 15px; line-height: 20px; font-weight: 600; color: #2DB84A">{{ d.hintAction }}</span></sc-if>
+          </button>
+          <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Открыть на {{ d.amountText }}</button>
+          <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Не является публичной офертой. Условия, ставки и тарифы — в документах продукта на сайте банка.</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start">
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Накопительный счёт — работает</span>
+      <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; gap: 12px; align-items: flex-start">
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><rect x="4" y="5" width="20" height="18" rx="2.5" fill="none" stroke="#21A038" stroke-width="1.8"></rect><path d="M8 18l4-4 3 3 5-6" fill="none" stroke="#21A038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Накопительный счёт</h3>
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">12,5% годовых · без срока · снимай и пополняй когда хочешь</span>
+          </div>
+        </div>
+        <div style="border-radius: 14px; padding: 14px 16px; background: #2B2C30; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Через {{ acc.termText }} на счёте</span>
+          <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ acc.total }}</span>
+          <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Из них доход</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; color: #2DB84A; font-variant-numeric: tabular-nums; white-space: nowrap">{{ acc.income }}</b></div>
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Старт — 30 000 ₽ с карты, дальше {{ acc.topUpText }} в месяц</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Пополнять в месяц</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ acc.topUpText }}</b></label>
+          <input class="rng" type="range" min="0" max="30000" step="1000" value="{{ acc.topUp }}" onChange="{{ acc.setTopUp }}" aria-label="Пополнять в месяц" aria-valuetext="{{ acc.topUpText }}" style="background: {{ acc.topUpTrack }}">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums"><span>0 ₽</span><span>30 000 ₽</span></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ acc.termText }}</b></label>
+          <input class="rng" type="range" min="1" max="36" step="1" value="{{ acc.term }}" onChange="{{ acc.setTerm }}" aria-label="Срок" aria-valuetext="{{ acc.termText }}" style="background: {{ acc.termTrack }}">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>1 мес.</span><span>36 мес.</span></div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; border-radius: 14px; padding: 12px 14px; min-height: 48px; box-sizing: border-box; background: #2B2C30">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#21A038" stroke-width="1.6"></circle><path d="M10 9v5M10 6.2v.1" stroke="#21A038" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <span style="font-size: 15px; line-height: 20px">Снять можно в любой момент — проценты за прошлые месяцы останутся</span>
+        </div>
+        <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Открыть счёт</button>
+        <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Не является публичной офертой. Условия, ставки и тарифы — в документах продукта на сайте банка.</p>
+      </div>
+    </div>
+
+    <div style="width: 374px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Копилка — для маленькой цели, работает</span>
+      <div style="background: #1E1F22; border-radius: 20px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; gap: 12px; align-items: flex-start">
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28" style="flex: none"><circle cx="14" cy="15" r="8" fill="none" stroke="#21A038" stroke-width="1.8"></circle><path d="M11 7h6" stroke="#21A038" stroke-width="1.8" stroke-linecap="round"></path><path d="M14 11v8M11.5 13.5h4a1.5 1.5 0 010 3h-3a1.5 1.5 0 000 3h4" fill="none" stroke="#21A038" stroke-width="1.5" stroke-linecap="round"></path></svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h3 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Копилка</h3>
+            <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Откладывает процент с каждой покупки по карте</span>
+          </div>
+        </div>
+        <div style="border-radius: 14px; padding: 14px 16px; background: #2B2C30; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">За {{ pig.termText }} отложится</span>
+          <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ pig.total }}</span>
+          <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">В месяц</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ pig.monthly }}</b></div>
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">По твоим тратам — 22 800 ₽ в месяц</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">С каждой покупки</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{ pig.shareText }}</b></label>
+          <input class="rng" type="range" min="1" max="10" step="1" value="{{ pig.share }}" onChange="{{ pig.setShare }}" aria-label="С каждой покупки" aria-valuetext="{{ pig.shareText }}" style="background: {{ pig.shareTrack }}">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>1%</span><span>10%</span></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <label style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Срок</span><b style="font-size: 17px; line-height: 22px; font-weight: 600; white-space: nowrap">{{ pig.termText }}</b></label>
+          <input class="rng" type="range" min="1" max="12" step="1" value="{{ pig.term }}" onChange="{{ pig.setTerm }}" aria-label="Срок" aria-valuetext="{{ pig.termText }}" style="background: {{ pig.termTrack }}">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #9A9DA3"><span>1 мес.</span><span>12 мес.</span></div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; border-radius: 14px; padding: 12px 14px; min-height: 48px; box-sizing: border-box; background: #2B2C30">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#21A038" stroke-width="1.6"></circle><path d="M10 9v5M10 6.2v.1" stroke="#21A038" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <span style="font-size: 15px; line-height: 20px">Выключить можно в любой момент, отложенное останется твоим</span>
+        </div>
+        <button type="button" style="min-height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Включить копилку</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":1640}}'>
+class Component extends DCLogic {
+  state = { amount: 30000, term: 12, topUp: 5000, accTerm: 12, share: 3, pigTerm: 6 };
+
+  renderVals() {
+    const s = this.state;
+    const rub = (n) => Math.round(n).toLocaleString('ru-RU') + ' ₽';
+    const plus = (n) => '+' + rub(n);
+    const pct = (r) => String(r).replace('.', ',') + '%';
+    const months = (n) => n + ' мес.';
+    // The fill ends under the thumb's centre: the 24 px thumb travels from 12 px to (width − 12 px).
+    const track = (v, min, max) => 'linear-gradient(to right, #21A038 0 calc(12px + (100% - 24px) * ' + ((v - min) / (max - min)) + '), #34353A 0)';
+    const genitive = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    const payout = (m) => { const d = new Date(2026, 9 + m, 23); return d.getDate() + ' ' + genitive[d.getMonth()] + ' ' + d.getFullYear(); };
+    const noop = () => {};
+
+    // Mock rate grid by amount and term; tops out at the bank's headline rates.
+    const BUCKETS = [[1, 2], [3, 5], [6, 8], [9, 12], [13, 24], [25, 36]];
+    const GRID = { start: [9, 10, 10.5, 11.5, 12.5, 11], sber: [10, 11, 12, 13, 13.5, 12] };
+    const TARIFF = {
+      start: { name: 'Выгодный старт', conditions: 'от 10 000 ₽, от 1 месяца · без пополнения и снятия, доход в конце срока' },
+      sber: { name: 'СберВклад', conditions: 'от 100 000 ₽, от 1 месяца · без пополнения и снятия, доход в конце срока' }
+    };
+    const bucket = (t) => BUCKETS.findIndex(([a, b]) => t >= a && t <= b);
+    const deposit = (label, amount, term, stale, live) => {
+      const key = amount >= 100000 ? 'sber' : 'start';
+      const rate = GRID[key][bucket(term)];
+      const better = BUCKETS.map(([a], i) => ({ a, r: GRID[key][i] })).find((x) => x.a > term && x.r > rate);
+      let hint, hintAction, apply = noop;
+      if (better) { hint = 'На ' + better.a + ' мес. ставка выше — ' + pct(better.r); hintAction = 'Поставить'; if (live) apply = () => this.setState({ term: better.a }); }
+      else if (key === 'start') { hint = 'От 100 000 ₽ — СберВклад, до 13,5%'; hintAction = 'Поставить'; if (live) apply = () => this.setState({ amount: 100000 }); }
+      else { hint = 'Это лучшая ставка для такой суммы'; hintAction = ''; }
+      return {
+        label, amount, term, tariff: TARIFF[key].name, conditions: TARIFF[key].conditions,
+        rate: pct(rate), income: plus(amount * rate / 100 * term / 12), payout: payout(term),
+        amountText: rub(amount), termText: months(term),
+        amountTrack: track(amount, 10000, 500000), termTrack: track(term, 1, 36),
+        hint, hintAction, applyHint: apply,
+        setAmount: live ? (e) => this.setState({ amount: Number(e.target.value) }) : noop,
+        setTerm: live ? (e) => this.setState({ term: Number(e.target.value) }) : noop,
+        busy: stale ? 'true' : 'false', opacity: stale ? '0.45' : '1', staleVisibility: stale ? 'visible' : 'hidden'
+      };
+    };
+
+    let bal = 30000, paid = 30000;
+    for (let i = 0; i < s.accTerm; i++) { bal = bal * (1 + 0.125 / 12) + s.topUp; paid += s.topUp; }
+    const SPEND = 22800;
+
+    return {
+      optionSets: [
+        { label: 'Варианты под цель — большая, без спешки', title: 'Как копить на первый взнос', subtitle: 'Цель — 1 500 000 ₽. Выбери, где копить',
+          rows: [
+            { name: 'Вклад', line: 'До 13,5% годовых, деньги лежат до конца срока', isDeposit: true, isAccount: false, isPiggy: false, isSpend: false },
+            { name: 'Накопительный счёт', line: '12,5% годовых, снимай в любой момент', isDeposit: false, isAccount: true, isPiggy: false, isSpend: false }
+          ] },
+        { label: 'Варианты под цель — маленькая или скорая', title: 'Как накопить на телефон', subtitle: 'Цель — 60 000 ₽ к лету. Выбери способ',
+          rows: [
+            { name: 'Копилка', line: 'Откладывает процент с каждой покупки', isDeposit: false, isAccount: false, isPiggy: true, isSpend: false },
+            { name: 'Сэкономить на тратах', line: 'Посмотрим, что можно сократить без боли', isDeposit: false, isAccount: false, isPiggy: false, isSpend: true }
+          ] }
+      ],
+      deposits: [
+        deposit('Вклад — реалистичная сумма для Лизы, работает', s.amount, s.term, false, true),
+        deposit('От 100 000 ₽ тариф меняется на СберВклад', 150000, 18, false, false),
+        deposit('Ползунки сдвинуты, ответа ещё нет', 60000, 6, true, false)
+      ],
+      acc: {
+        topUp: s.topUp, term: s.accTerm, topUpText: rub(s.topUp), termText: months(s.accTerm),
+        total: rub(bal), income: plus(bal - paid),
+        topUpTrack: track(s.topUp, 0, 30000), termTrack: track(s.accTerm, 1, 36),
+        setTopUp: (e) => this.setState({ topUp: Number(e.target.value) }),
+        setTerm: (e) => this.setState({ accTerm: Number(e.target.value) })
+      },
+      pig: {
+        share: s.share, term: s.pigTerm, shareText: s.share + '%', termText: months(s.pigTerm),
+        monthly: rub(SPEND * s.share / 100), total: rub(SPEND * s.share / 100 * s.pigTerm),
+        shareTrack: track(s.share, 1, 10), termTrack: track(s.pigTerm, 1, 12),
+        setShare: (e) => this.setState({ share: Number(e.target.value) }),
+        setTerm: (e) => this.setState({ pigTerm: Number(e.target.value) })
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

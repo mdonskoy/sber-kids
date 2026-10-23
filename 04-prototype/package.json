@@ -1,0 +1,21 @@
+{
+  "name": "sber-kids-prototype",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "concurrently -k -n server,web \"npm run dev -w @proto/server\" \"npm run dev -w @proto/web\"",
+    "build": "npm run build -w @proto/web",
+    "start": "npm run build && npm run start -w @proto/server",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json",
+    "eval": "npm run eval -w @proto/evals --"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "concurrently": "10.0.6",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5"
+  }
+}

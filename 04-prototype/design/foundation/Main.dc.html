@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#21A038}a:hover{color:#2DB84A}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1180px; box-sizing: border-box; padding: 56px 64px; background: #0F0F10; font-family: 'SB Sans Text', Inter, system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 32px; line-height: 38px; font-weight: 600">Первые деньги — тёмная тема чата Сбера</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 22px; color: #9A9DA3; max-width: 760px">По образцу чата в приложении: тёмный фон, карточки ответа, белая главная кнопка, зелёный — иконки и деньги, которые прибавляются.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+    <section style="background: #1E1F22; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Шрифт</h2>
+      <div style="display: grid; grid-template-columns: 124px 160px minmax(0, 1fr); column-gap: 16px; row-gap: 14px; align-items: baseline">
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">text-amount</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Display 600 · 28/34</span>
+        <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 28px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">52 234 ₽</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">text-title</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Display 600 · 22/28</span>
+        <span style="font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Открой вклад или счёт</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">text-body</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Text 400 / 600 · 17/22</span>
+        <span style="font-size: 17px; line-height: 22px">Вклад — 15% годовых</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">text-secondary</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Text 400 · 15/20</span>
+        <span style="font-size: 15px; line-height: 20px; color: #9A9DA3">Ставка выше, но снять раньше срока нельзя</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">text-caption</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Text 400 · 13/18</span>
+        <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">Сегодня · 19:20</span>
+      </div>
+      <p style="margin: 0; font-size: 13px; line-height: 18px; color: #9A9DA3">Начертания 400 и 600. Деньги — моноширинные цифры, без переноса.</p>
+    </section>
+
+    <section style="background: #1E1F22; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Цвет</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <sc-for list="{{ swatches }}" as="s" hint-placeholder-count="10">
+          <div style="display: flex; gap: 12px; align-items: center">
+            <div style="width: 44px; height: 44px; border-radius: 14px; flex: none; background: {{ s.hex }}; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12)"></div>
+            <div style="display: flex; flex-direction: column; min-width: 0">
+              <span style="font-size: 15px; line-height: 20px; font-weight: 600">{{ s.name }} <span style="font-weight: 400; color: #9A9DA3; font-variant-numeric: tabular-nums">{{ s.hex }}</span></span>
+              <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ s.use }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+    <section style="background: #1E1F22; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Отступы · сетка 4 px</h2>
+      <sc-for list="{{ spaces }}" as="sp" hint-placeholder-count="6">
+        <div style="display: flex; gap: 12px; align-items: center">
+          <span style="width: 28px; font-size: 13px; line-height: 18px; color: #9A9DA3; font-variant-numeric: tabular-nums">{{ sp.px }}</span>
+          <div style="height: 12px; border-radius: 4px; background: #21A038; flex: none; width: {{ sp.w }}"></div>
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">{{ sp.use }}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section style="background: #1E1F22; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Скругления и кнопки</h2>
+      <div style="display: flex; gap: 24px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="width: 112px; height: 80px; border-radius: 20px; background: #2B2C30"></div>
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">radius-card · 20</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="width: 112px; height: 52px; border-radius: 14px; background: #2B2C30"></div>
+          <span style="font-size: 13px; line-height: 18px; color: #9A9DA3">radius-control · 14</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <button type="button" style="height: 52px; border: 0; border-radius: 14px; background: #FFFFFF; color: #111214; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Главное действие</button>
+        <button type="button" style="height: 52px; border: 0; border-radius: 14px; background: #2B2C30; color: #FFFFFF; font: 600 17px/22px 'SB Sans Text', Inter, system-ui, sans-serif">Второе действие</button>
+        <div style="display: flex; gap: 8px">
+          <button type="button" style="height: 40px; padding: 0 16px; border: 1px solid #45464C; border-radius: 14px; background: transparent; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">Подсказка</button>
+          <button type="button" style="height: 40px; padding: 0 16px; border: 1px solid #45464C; border-radius: 14px; background: transparent; color: #FFFFFF; font: 400 15px/20px 'SB Sans Text', Inter, system-ui, sans-serif">Позвать специалиста</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: #1E1F22; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-family: 'SB Sans Display', Inter, system-ui, sans-serif; font-size: 22px; line-height: 28px; font-weight: 600">Правила</h2>
+      <sc-for list="{{ rules }}" as="r" hint-placeholder-count="6">
+        <div style="display: flex; gap: 10px; align-items: flex-start">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" style="flex: none; margin-top: 1px"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="#21A038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="font-size: 15px; line-height: 20px">{{ r }}</span>
+        </div>
+      </sc-for>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      swatches: [
+        { name: 'background', hex: '#0F0F10', use: 'фон экрана' },
+        { name: 'surface', hex: '#1E1F22', use: 'карточки, ответы, поле ввода' },
+        { name: 'default', hex: '#2B2C30', use: 'пузырь Лизы, вторая кнопка, скелетон' },
+        { name: 'border', hex: '#34353A', use: 'разделители, дорожка ползунка' },
+        { name: 'foreground', hex: '#FFFFFF', use: 'текст, суммы' },
+        { name: 'muted', hex: '#9A9DA3', use: 'подписи: 6:1 на карточке' },
+        { name: 'accent', hex: '#FFFFFF', use: 'главная кнопка (текст #111214)' },
+        { name: 'success', hex: '#21A038', use: 'иконки, «+» к деньгам, ссылки' },
+        { name: 'warning', hex: '#F2A33A', use: 'риск: переплата по кредиту' },
+        { name: 'danger', hex: '#FF6B5E', use: 'ошибка' }
+      ],
+      spaces: [
+        { px: '4', w: '4px', use: 'заголовок → подзаголовок' },
+        { px: '8', w: '8px', use: 'края экрана, между пузырями' },
+        { px: '12', w: '12px', use: 'иконка → текст' },
+        { px: '16', w: '16px', use: 'внутри карточки, строки списка' },
+        { px: '24', w: '24px', use: 'между ответами' },
+        { px: '32', w: '32px', use: 'секции страницы' }
+      ],
+      rules: [
+        'Ответ модели — карточка во всю ширину или пузырь слева; Лиза — серый пузырь справа со временем.',
+        'В карточке одна белая главная кнопка во всю ширину; остальное — серое или подсказки.',
+        'Зелёный — линейные иконки, «+» к деньгам и ссылки; не кнопки.',
+        'Суммы — белые, 600, моноширинные, без переноса. Сроки — «1 год 6 мес.».',
+        'Кнопки и поля не ниже 44 px; подсказки под ответом листаются вбок.',
+        'Прошлые ответы не бледнеют: у них просто нет кнопок.'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
